@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --color-bg: linear-gradient(to top, #d987cd, #00d4ff);
+    --line-color: linear-gradient(to left top, #82ff86 20%, #144425, #104e1c);
+    --leaf-color: linear-gradient(to bottom, red, red, #1a233a 99%);
+    --fall-leaf-color: linear-gradient(to bottom, red, red,red  99%);
+  }
+
+  body{
+    background-image: var(--color-bg);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+  }
+  h1 {
+    text-align: center;
+    color: black;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-size: 40px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    top: 10vh; /* Adjust this value according to your preference */
+    transform: translate(0, 0); /* Change translateY to 0 */
+}
+
+  .grass{
+    position: absolute;
+    left: 0;
+    bottom: -20px;
+    width: 100%;
+  }
+
+  .grass img{
+    object-fit: contain;
+    width: 100%;
+  }
+
+  .flower{
+    position: relative;
+  }
+
+  .flower-wrapper{
+    position: absolute;
+    left: 45%;
+    bottom: 2vmin;
+  }
+
+  .flower-line {
+    width: 2vmin;
+    height: 56vmin;
+    background-image: var(--line-color);
+    border-radius: 4vmin;
+  }
+
+  .flower-center{
+    position: absolute;
+    top: 1vmin;
+    left: 50%;
+    transform: translateX(-50%) rotate(-10deg);
+    width: 2vmin;
+    height: 2vmin;
+    background-color: pink;
+  }
+
+  .flower-leaf{
+    position: absolute;
+    left: 50%;
+    bottom: 2vmin;
+    transform: translateX(-50%);
+    width: 5vmin;
+    height: 14vmin;
+    background-image: var(--leaf-color);
+    clip-path: ellipse(50% 50% at 50% 50%);
+    transform-origin: center bottom;
+    animation: open-flower 2s 1s backwards;
+  }
+
+  .flower_leaf-1 {
+    width: 10vmin;
+    height: 12vmin;
+    bottom: 3vmin;
+    border-radius: 50% 50% 50% / 80% 80% 20% 20%;
+    background-color: red;
+    background-image: none;
+    animation: open-flower 1.4s 1s backwards;
+  }
+
+  .flower_leaf-2 {
+    transform: translateX(-50%) rotate(-30deg);
+  }
+
+  .flower_leaf-3 {
+    transform: translateX(-50%) rotate(-50deg);
+  }
+  .flower_leaf-4 {
+    transform: translateX(-50%) rotate(-70deg);
+  }
+  .flower_leaf-5 {
+    transform: translateX(-50%) rotate(30deg);
+  }
+  .flower_leaf-6 {
+    transform: translateX(-50%) rotate(50deg);
+  }
+  .flower_leaf-7 {
+    transform: translateX(-50%) rotate(70deg);
+  }
+  .flower_leaf-8 {
+    width: 13vmin;
+    height: 11vmin;
+    bottom: 6vmin;
+    border-radius: none;
+    clip-path: none;
+    border-radius: 10vmin 2vmin 10vmin 2vmin;
+    background-image: var(--fall-leaf-color);
+    transform: rotate(-55deg)
+  }
+
+  .flower_fall-down{
+    animation: flower-fall-down 8s 1.2s linear forwards;
+  }
+
+  @keyframes open-flower {
+    0%{
+        transform: translateX(-50%) rotate(0);
+    }
+  }
+
+
+  @keyframes open-flower-middle {
+    0%{
+        opacity: 0;
+        transform: translateX(-50%) rotate(0);
+    }
+  }
+
+  @keyframes flower-fall-down {
+    0%{
+        transform: rotate(-55deg);
+    }
+    50%{
+        bottom: 3vmin;
+        transform: rotateX(-100deg)
+    }
+    100%{
+        transform: translate(2vmin, 52vmin) rotate(210deg)
+    }
+  }
+
+  @keyframes move {
+    0% {
+      transform: translate(0, 100vh);
+    }
+    100% {
+      transform: translate(0vh, 0);
+    }
+  }
